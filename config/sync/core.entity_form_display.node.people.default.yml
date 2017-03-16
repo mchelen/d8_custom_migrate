@@ -9,9 +9,11 @@ dependencies:
     - field.field.node.people.field_first_name
     - field.field.node.people.field_ip_address
     - field.field.node.people.field_last_name
+    - field.field.node.people.field_website
     - node.type.people
   module:
     - datetime
+    - link
     - path
 id: node.people.default
 targetEntityType: node
@@ -64,6 +66,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+  field_website:
+    weight: 37
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
   path:
     type: path
     weight: 30

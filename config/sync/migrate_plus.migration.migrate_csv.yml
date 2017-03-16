@@ -31,6 +31,8 @@ source:
       ip_address: 'IP Address'
     -
       date_of_birth: 'Date of Birth'
+    -
+      website: 'Website'
 process:
   type:
     plugin: default_value
@@ -53,6 +55,10 @@ process:
     from_format: m/d/Y
     to_format: Y-m-d
     source: date_of_birth
+  field_website/uri: website
+  field_website/title:
+    plugin: default_value
+    default_value: "Website"
 destination:
   plugin: 'entity:node'
 migration_dependencies:
