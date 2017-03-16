@@ -77,5 +77,8 @@ process:
   status:
     plugin: default_value
     default_value: 1
-  "comment_body/value": body
-
+  'comment_body/value': body
+destination:
+  # Here we're saying that each row of data (line from the CSV file) will be
+  # used to create a comment entity.
+  plugin: entity:comment
