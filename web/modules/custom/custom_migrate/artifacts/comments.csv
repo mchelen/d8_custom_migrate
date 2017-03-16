@@ -1,0 +1,6 @@
+cid,pid,cid_parent,subject,body,name,mail,aid
+1,2,,"foo","foo",,,1
+2,2,1,"bar","bar",,,1
+3,2,2,"baz","baz",,,1
+4,3,,"qux","qux",,,1
+5,3,4,"buzz","buzz",,,1

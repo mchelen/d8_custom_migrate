@@ -1,0 +1,79 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    # List here the name of the module that provided this migration if you want
+    # this config to be removed when that module is uninstalled.
+    module:
+      - custom_migrate
+migration_dependencies:
+  required:
+    - migrate_csv
+# The source data is in CSV files, so we use the 'csv' source plugin.
+id: migrate_csv_comments
+label: CSV file migration of comments
+migration_tags:
+  - CSV
+source:
+  plugin: csv
+  # Full path to the file.
+  path: /artifacts/comments.csv
+  # The number of rows at the beginning which are not data.
+  header_row_count: 1
+  # These are the field names from the source file representing the key
+  # uniquely identifying each game - they will be stored in the migration
+  # map table as columns sourceid1, sourceid2, and sourceid3.
+  keys:
+    - id
+  # Here we identify the columns of interest in the source file. Each numeric
+  # key is the 0-based index of the column. For each column, the key below
+  # (e.g., "start_date") is the field name assigned to the data on import, to
+  # be used in field mappings below. The value is a user-friendly string for
+  # display by the migration UI.
+  column_names:
+    # So, here we're saying that the first field (index 0) on each line will
+    # be stored in the start_date field in the Row object during migration, and
+    # that name can be used to map the value below. "Date of game" will appear
+    # in the UI to describe this field.
+    0:
+      id: Identifier
+    1:
+      first_name: First Name
+    2:
+      last_name: Last Name
+    3:
+      email: Email Address
+    4:
+      country: Country
+    5:
+      ip_address: IP Address
+    6:
+      date_of_birth: Date of Birth
+process:
+  pid:
+    plugin: migration
+    migration: migrate_csv_comments
+    source: cid_parent
+  entity_id:
+    plugin: migration
+    migration: migrate_csv
+  entity_type:
+    plugin: default_value
+    default_value: node
+  field_name:
+    plugin: default_value
+    default_value: field_comments
+  comment_type:
+    plugin: default_value
+    default_value: node_comments
+  subject: subject
+  uid:
+    plugin: default_value
+    default_value: 1
+  name: name
+  mail: mail
+  status:
+    plugin: default_value
+    default_value: 1
+  comment_body/value: body
+
