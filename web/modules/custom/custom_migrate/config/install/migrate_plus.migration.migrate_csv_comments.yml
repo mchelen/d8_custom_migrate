@@ -59,6 +59,7 @@ process:
   entity_id:
     plugin: migration
     migration: migrate_csv
+    source: pid
   entity_type:
     plugin: default_value
     default_value: node
