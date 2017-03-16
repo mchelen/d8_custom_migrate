@@ -65,10 +65,7 @@ process:
     default_value: node
   field_name:
     plugin: default_value
-    default_value: field_comments
-  comment_type:
-    plugin: default_value
-    default_value: node_comments
+    default_value: comment
   subject: subject
   uid:
     plugin: default_value
