@@ -24,7 +24,7 @@ source:
   # uniquely identifying each game - they will be stored in the migration
   # map table as columns sourceid1, sourceid2, and sourceid3.
   keys:
-    - cid
+    - id
   # Here we identify the columns of interest in the source file. Each numeric
   # key is the 0-based index of the column. For each column, the key below
   # (e.g., "start_date") is the field name assigned to the data on import, to
@@ -36,9 +36,9 @@ source:
     # that name can be used to map the value below. "Date of game" will appear
     # in the UI to describe this field.
     0:
-      cid: Identifier
+      id: Comment ID
     1:
-      pid: Person ID
+      person_id: Person ID
     2:
       cid_parent: Parent Comment ID
     3:
@@ -59,7 +59,7 @@ process:
   entity_id:
     plugin: migration
     migration: migrate_csv
-    source: pid
+    source: person_id
   entity_type:
     plugin: default_value
     default_value: node
