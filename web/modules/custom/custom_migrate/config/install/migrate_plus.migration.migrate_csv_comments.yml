@@ -24,7 +24,7 @@ source:
   # uniquely identifying each game - they will be stored in the migration
   # map table as columns sourceid1, sourceid2, and sourceid3.
   keys:
-    - id
+    - cid
   # Here we identify the columns of interest in the source file. Each numeric
   # key is the 0-based index of the column. For each column, the key below
   # (e.g., "start_date") is the field name assigned to the data on import, to
@@ -36,19 +36,21 @@ source:
     # that name can be used to map the value below. "Date of game" will appear
     # in the UI to describe this field.
     0:
-      id: Identifier
+      cid: Identifier
     1:
-      first_name: First Name
+      pid: Person ID
     2:
-      last_name: Last Name
+      cid_parent: Parent Comment ID
     3:
-      email: Email Address
+      subject: Subject 
     4:
-      country: Country
+      body: Body
     5:
-      ip_address: IP Address
+      name: Name
     6:
-      date_of_birth: Date of Birth
+      mail: Mail
+    7:
+      aid: Author ID
 process:
   pid:
     plugin: migration
