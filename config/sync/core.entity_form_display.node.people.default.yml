@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.people.comment
     - field.field.node.people.field_country
     - field.field.node.people.field_dob
     - field.field.node.people.field_email
@@ -11,6 +12,7 @@ dependencies:
     - field.field.node.people.field_last_name
     - node.type.people
   module:
+    - comment
     - datetime
     - path
 id: node.people.default
@@ -18,6 +20,11 @@ targetEntityType: node
 bundle: people
 mode: default
 content:
+  comment:
+    weight: 37
+    settings: {  }
+    third_party_settings: {  }
+    type: comment_default
   created:
     type: datetime_timestamp
     weight: 10
